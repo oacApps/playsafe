@@ -23,19 +23,18 @@ public class BetHandler {
         int numberOfBet = -1;
         String userInput[];
 
-        playersHandler.getPlayers().forEach(player -> {
-            System.out.print("Please enter number of bet for player " + player.getName() + " : ");
+        for (Player player : playersHandler.getPlayers()) {
+            System.out.print("\nPlease enter number of bet for player " + player.getName() + " : ");
             numberOfBet = keyboard.nextInt();
             keyboard.nextLine();
-
-            while ( numberOfBet > 0){
+            while (numberOfBet > 0) {
                 System.out.print(player.getName() + " ");
                 userInput = keyboard.nextLine().split(" ");
                 this.playerBets.add(createBet(player.getName(), userInput[PlayerInput.PLAYERS_BET.getPlayerInput()], userInput[PlayerInput.BET_AMOUNT.getPlayerInput()]));
                 numberOfBet--;
             }
 
-        });
+        }
         keyboard.close();
     }
 
