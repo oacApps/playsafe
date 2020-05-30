@@ -62,7 +62,7 @@ public class ConversionsController {
     @GetMapping("/ktom/{unitValue}")
     public ResponseEntity<Double> kilometersToMiles(@PathVariable double unitValue){
         calculateExecutionTime.start();
-        ConversionDTO conversionDTO = mapTo.conversionDTO(MeasurementEnum.TEMPERATURE, UnitEnum.CELSIUS, UnitEnum.KELVIN, unitValue);
+        ConversionDTO conversionDTO = mapTo.conversionDTO(MeasurementEnum.LENGTH, UnitEnum.KILOMETERS, UnitEnum.MILES, unitValue);
         double convertedValue = conversionService.convert(conversionDTO);
         LOGGER.info("Execution time for ktom is : " + calculateExecutionTime.getDuration() + " milliseconds.");
         return new ResponseEntity<>(convertedValue, HttpStatus.OK);
