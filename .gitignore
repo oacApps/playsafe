@@ -1,3 +1,4 @@
 /play-safe-cpt.iml
 /.idea/
 /measurement/.mvn/
+.gitignore
