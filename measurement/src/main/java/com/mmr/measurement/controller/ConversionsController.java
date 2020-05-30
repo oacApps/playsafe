@@ -30,4 +30,25 @@ public class ConversionsController {
         double convertedValue = conversionService.convert(conversionDTO);
         return new ResponseEntity<>(convertedValue, HttpStatus.OK);
     }
+
+    @GetMapping("/ctok/{unitValue}")
+    public ResponseEntity<Double> celsiusToKelvin(@PathVariable double unitValue){
+        ConversionDTO conversionDTO = mapTo.conversionDTO(MeasurementEnum.TEMPERATURE, UnitEnum.CELSIUS, UnitEnum.KELVIN, unitValue);
+        double convertedValue = conversionService.convert(conversionDTO);
+        return new ResponseEntity<>(convertedValue, HttpStatus.OK);
+    }
+
+    @GetMapping("/mtok/{unitValue}")
+    public ResponseEntity<Double> milesToKilometers(@PathVariable double unitValue){
+        ConversionDTO conversionDTO = mapTo.conversionDTO(MeasurementEnum.LENGTH, UnitEnum.MILES, UnitEnum.KILOMETERS, unitValue);
+        double convertedValue = conversionService.convert(conversionDTO);
+        return new ResponseEntity<>(convertedValue, HttpStatus.OK);
+    }
+
+    @GetMapping("/ktom/{unitValue}")
+    public ResponseEntity<Double> kilometersToMiles(@PathVariable double unitValue){
+        ConversionDTO conversionDTO = mapTo.conversionDTO(MeasurementEnum.TEMPERATURE, UnitEnum.CELSIUS, UnitEnum.KELVIN, unitValue);
+        double convertedValue = conversionService.convert(conversionDTO);
+        return new ResponseEntity<>(convertedValue, HttpStatus.OK);
+    }
 }
